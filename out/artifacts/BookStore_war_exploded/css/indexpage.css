@@ -1,0 +1,333 @@
+.login-box{
+    display: none;
+}
+
+.reg-box{
+    display: none;
+}
+
+
+.body-container{
+    margin-top: -72px;
+}
+
+.body-bottom{
+    background-color: #f8f8f8;
+    position: relative;
+    height: 50px;
+    margin-top: -50px;
+    border: 1px solid #E7E7E7;
+    border-radius: 4px;
+    padding: 10px 15px 30px 15px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.bottom-instruction{
+    color: #999;
+    font-family: sans-serif;
+}
+
+
+.welcome-instruction{
+    margin-top: -500px;
+    color: #FFF;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 70px;
+    display: none;
+}
+.show-book-table{
+    width: 1100px;
+    margin: auto;
+}
+.searching-bar{
+     width: 450px !important;
+ }
+.tips {
+    display: none;
+    position: absolute;
+    top: 37px;
+    width: 450px;
+    opacity: 0.9;
+    z-index: 100;
+    color: #767575;
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
+.user-interface-title{
+    margin-left: 110px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #564E4E;
+}
+.mtable-container{
+    display: none;
+    margin-left: 100px;
+}
+.book-order-btn{
+    width: 61px;
+    margin-left: 78px;
+    margin-right: 83px;
+}
+.quantity-input{
+    display: inline-block;
+    width: 80px;
+}
+.quantity-form{
+    margin-top: 7px;
+    display: none;
+}
+.quantity-ok{
+    display: inline-block;
+    width: 50px;
+}
+.quantity-cancel{
+    display: inline-block;
+    width: 70px;
+}
+.bottom-order-list{
+    width: 300px;
+    text-align: center;
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+}
+.shopping-label{
+    font-size: 16px;
+    color: #4C4B4B;
+}
+.shoppingcart{
+     position: fixed;
+     bottom: 0;
+     right: 0;
+     z-index: 100;
+     box-shadow: #666 0px 0px 5px;
+ }
+.show-order-list{
+    position: absolute;
+    width: 300px;
+    bottom: 44px;
+    display: none;
+    box-shadow: #666 0px 0px 5px;
+}
+.order-list-table{
+    background-color: #F9F9F9;
+    margin-bottom: 0px;
+}
+.order-list-table-head {
+    border: 1px solid #ddd;
+    background-color: rgb(234, 234, 234);
+}
+.finish-shopping{
+    position: absolute;
+    margin-left: 8px;
+    margin-top: 7px;
+    z-index: 100;
+    background-color: white;
+}
+.orderid-submit{
+    display: none;
+}
+.otable-container{
+    display: none;
+}
+.show-order-table{
+    width: 1000px;
+    margin: auto;
+}
+.orderid-title{
+    margin-left: 155px;
+    font-size: 20px;
+}
+.total-price{
+    text-align: right;
+    margin-right: 160px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.view-all-orders-btn{
+    right: 0;
+    position: absolute;
+    margin-right: 160px;
+    margin-top: 18px;
+}
+.show-buysuggest-table{
+    width: 1000px;
+    margin: auto;
+}
+.buying-suggestion-title{
+    margin-top: 62px;
+}
+.buying-suggestion-container{
+    display: none;
+}
+
+.show-detail-order-table {
+    display: none;
+}
+
+.show-allorder-table{
+    width: 1300px;
+    margin: auto;
+}
+.orderid-row{
+    display: none;
+}
+.order-total-price{
+    text-align: right;
+    margin-top: -15px;
+}
+.orders-detail-list{
+    display: none;
+}
+.result-divider{
+    width: 1250px;
+}
+.result-container{
+    margin: auto;
+}
+.result-table{
+    margin: auto;
+    width: 1200px;
+}
+.illegal-query{
+    margin-left: 200px;
+    font-size: 20px;
+    color: red;
+}
+.empty-query{
+    margin-left: 200px;
+    font-size: 20px;
+}
+.sortmethod{
+    display: inline-block;
+    float: right;
+    margin-right: 150px;
+}
+.sortselector{
+    margin-top: 20px;
+}
+.table1{
+    display: none;
+}
+.table2{
+    display: none;
+}
+.table3{
+    display: none;
+}
+.asinput-container{
+    text-align: center;
+}
+.authorinput{
+    width: 200px;
+    margin: auto;
+    display: inline-block;
+}
+.author2-label{
+    margin-left: 20px;
+}
+.assubmit{
+    margin-left: 20px;
+}
+.author1notexist{
+    display: none;
+    font-size: 25px;
+    color: red;
+}
+.author2notexist{
+    display: none;
+    font-size: 25px;
+    color: red;
+}
+.theresult{
+    display: none;
+    font-size: 25px;
+}
+.asresult{
+    text-align: center;
+    margin-top: 30px;
+}
+.addsuccess{
+    position: absolute;
+    margin-top: 5px;
+}
+.addbook-btn {
+    float: right;
+    margin-right: 120px;
+    margin-top: 20px;
+}
+.anb-container{
+    text-align: right;
+    margin-right: 580px;
+}
+.anb-input{
+    width: 300px;
+    margin-left: 10px;
+    margin-right: 16px;
+    display: inline-block;
+    margin-bottom: 28px;
+}
+.anb-interface-title{
+    margin-left: 400px;
+}
+.anb-subject{
+    margin-right: 0px;
+}
+.anb-author{
+    margin-right: 0px;
+}
+.minus:hover{
+     color: #999;
+ }
+.plus:hover{
+    color: #999;
+}
+.anb-subject-input{
+    width: 300px;
+    margin-left: 10px;
+    display: inline-block;
+    margin-bottom: 0px;
+}
+a:link{
+    text-decoration:none;
+}
+a:visited{
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:none;
+}
+a:active{
+    text-decoration:none;
+}
+.stap-table{
+    margin: auto;
+    width: 1100px;
+}
+.time{
+    font-size: 20px;
+    margin-left: 150px;
+}
+.stapa-container{
+    margin-top: 30px;
+}
+.stapp-container{
+    margin-top: 30px;
+}
+.blank{
+    height: 70px;
+}
+.input-m{
+    width: 50px;
+    display: inline-block;
+}
+.m-label{
+    display: inline-block;
+    float: right;
+    margin-right: 200px;
+}
+.stap-container{
+    display: none;
+}

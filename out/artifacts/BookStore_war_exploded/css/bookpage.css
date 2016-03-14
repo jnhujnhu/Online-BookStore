@@ -1,0 +1,130 @@
+.bookinfo-divider{
+    width: 1000px;
+    border-top: 2px solid #999;
+}
+.bookinfo-row{
+    margin-left: 50px;
+}
+.bookinfo-info{
+    font: inherit;
+    font-size: 17px;
+}
+.bookinfo-container{
+    width: 1000px;
+    margin: auto;
+}
+.bookinfo-tag{
+    font-size: 17px;
+}
+.bookinfo-title{
+    margin-left: 10px;
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: #564E4E;
+}
+.bookinfo-table{
+    display: none;
+}
+.feedback-title{
+    margin-left: 10px;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #564E4E;
+}
+.all-feedbackinfo-container{
+    display: none;
+}
+.topfeedback-container{
+    display: none;
+}
+.feedbackinfo-container{
+    margin-left: 20px;
+    text-align: left;
+}
+.feedbackinfo-date{
+    font: inherit;
+    font-size: 17px;
+}
+.feedbackinfo-user{
+    font-size: 17px;
+}
+.feedbackinfo-user:hover{
+    color: #999;
+}
+.feedback-container{
+    width: 1000px;
+    margin: auto;
+}
+.givefeedback-container{
+    width: 1000px;
+    margin: auto;
+}
+.feedbackinfo-usefulratingscore{
+    float: right;
+    color: #999;
+    font: inherit;
+    font-size: 17px;
+}
+.feedbackinfo-optionaltext{
+    font: inherit;
+    font-size: 20px;
+}
+.half{
+    color: #999;
+}
+.topfeedbackinfo-container{
+    display: none;
+}
+.topnumber{
+    display: inline-block;
+    width: 57px;
+}
+.show-topfeedback-checkbox{
+    position: absolute;
+    margin-left: 200px;
+    margin-top: -50px;
+}
+.ratefeedbacksuccess{
+    display: none;
+    color: brown;
+}
+.ratefeedbackrateself{
+    display: none;
+    color: brown;
+}
+.givefeedback-score{
+    width: 57px;
+    display: inline-block;
+}
+.givescore{
+    font-size: 17px;
+    margin-left: 10px;
+}
+.givecomment{
+    font-size: 17px;
+    margin-left: 10px;
+    margin-top: 20px;
+    display: inline-flex;
+}
+.givefeedback-comment{
+    width: 900px;
+    max-width: 900px;
+}
+.submitbtn{
+    text-align: right;
+    margin-top: 10px;
+}
+.givedetail-container{
+    display: none;
+}
+.userrating-trust{
+    font-size: 12px;
+    margin-left: 20px;
+}
+.userrating-untrust{
+    font-size: 12px;
+}
+.userrating{
+    margin-bottom: 5px;
+    display: none;
+}

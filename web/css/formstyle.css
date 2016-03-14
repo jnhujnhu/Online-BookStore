@@ -1,0 +1,70 @@
+.container {
+    margin-top: -560px;
+    margin-bottom: 100px;
+}
+
+.reg-container {
+    margin-top: -130px;
+    margin-bottom: 100px;
+}
+
+.login-info{
+    width: 200px;
+    display: inline-block;
+}
+
+.login-form{
+    text-align: center;
+}
+.warning{
+    color: brown;
+    display: none;
+}
+
+.login-label {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.login-row {
+    text-align: end;
+    margin-bottom: 10px;
+}
+
+.login-checkbox{
+    margin-right: 50px;
+    color: #999;
+}
+
+.login-btn-submit{
+    width: 100px;
+}
+
+.reg-btn-submit{
+    width: 100px;
+}
+.login-box {
+    width: 350px;
+    background-color: #f8f8f8;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px 30px 15px;
+    margin: auto;
+    opacity: 0.95;
+}
+.reg-box {
+    width: 400px;
+    background-color: #f8f8f8;
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px 30px 15px;
+    margin: auto;
+    opacity: 0.95;
+}
+.box-title{
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #999;
+}
