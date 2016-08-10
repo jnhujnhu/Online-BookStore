@@ -35,6 +35,25 @@
   <link href="../css/formstyle.css" rel="stylesheet">
   <link href="../css/indexpage.css" rel="stylesheet">
   <script>
+    var checker = false;
+    function showRateSelfWarning(feedbackid) {
+      var warning = $(".ratefeedbackrateself[feedbackid='" + feedbackid + "']");
+      warning.slideDown();
+      warning.css("display","inline-block");
+      setTimeout(function () {
+        warning.slideUp();
+      }, 2000);
+    }
+
+    function showSuccess(feedbackid) {
+      var success = $(".ratefeedbacksuccess[feedbackid='" + feedbackid + "']");
+      success.slideDown();
+      success.css("display","inline-block");
+      setTimeout(function () {
+        success.slideUp();
+      }, 2000);
+    }
+
     $(document).ready(function() {
       setTimeout(function() {
         $(".bookinfo-table").slideDown(300);
@@ -51,20 +70,12 @@
         var loginname = "<%=username%>";
         if(feedbackuser == loginname)
         {
-          $(".ratefeedbackrateself[feedbackid='" + feedbackid + "']").slideDown();
-          $(".ratefeedbackrateself[feedbackid='" + feedbackid + "']").css("display","inline-block");
-          setTimeout(function () {
-            $(".ratefeedbackrateself[feedbackid='" + feedbackid + "']").slideUp();
-          }, 2000);
+            showRateSelfWarning(feedbackid);
         }
         else {
           $.getJSON("ratefeedback.jsp?feedbackid=" + feedbackid + "&loginname=" + loginname + "&score=2", function (data) {
             if (data.result == true) {
-              $(".ratefeedbacksuccess[feedbackid='" + feedbackid + "']").slideDown();
-              $(".ratefeedbacksuccess[feedbackid='" + feedbackid + "']").css("display","inline-block");
-              setTimeout(function () {
-                $(".ratefeedbacksuccess[feedbackid='" + feedbackid + "']").slideUp();
-              }, 2000);
+              showSuccess(feedbackid);
             }
           });
         }
@@ -76,20 +87,12 @@
         var loginname = "<%=username%>";
         if(feedbackuser == loginname)
         {
-          $(".ratefeedbackrateself[feedbackid='" + feedbackid + "']").slideDown();
-          $(".ratefeedbackrateself[feedbackid='" + feedbackid + "']").css("display","inline-block");
-          setTimeout(function () {
-            $(".ratefeedbackrateself[feedbackid='" + feedbackid + "']").slideUp();
-          }, 2000);
+          showRateSelfWarning(feedbackid);
         }
         else {
           $.getJSON("ratefeedback.jsp?feedbackid=" + feedbackid + "&loginname=" + loginname + "&score=1", function (data) {
             if (data.result == true) {
-              $(".ratefeedbacksuccess[feedbackid='" + feedbackid + "']").slideDown();
-              $(".ratefeedbacksuccess[feedbackid='" + feedbackid + "']").css("display","inline-block");
-              setTimeout(function () {
-                $(".ratefeedbacksuccess[feedbackid='" + feedbackid + "']").slideUp();
-              }, 2000);
+              showSuccess(feedbackid);
             }
           });
         }
@@ -101,20 +104,12 @@
         var loginname = "<%=username%>";
         if(feedbackuser == loginname)
         {
-          $(".ratefeedbackrateself[feedbackid='" + feedbackid + "']").slideDown();
-          $(".ratefeedbackrateself[feedbackid='" + feedbackid + "']").css("display","inline-block");
-          setTimeout(function () {
-            $(".ratefeedbackrateself[feedbackid='" + feedbackid + "']").slideUp();
-          }, 2000);
+          showRateSelfWarning(feedbackid);
         }
         else {
           $.getJSON("ratefeedback.jsp?feedbackid=" + feedbackid + "&loginname=" + loginname + "&score=0", function (data) {
             if (data.result == true) {
-              $(".ratefeedbacksuccess[feedbackid='" + feedbackid + "']").slideDown();
-              $(".ratefeedbacksuccess[feedbackid='" + feedbackid + "']").css("display","inline-block");
-              setTimeout(function () {
-                $(".ratefeedbacksuccess[feedbackid='" + feedbackid + "']").slideUp();
-              }, 2000);
+              showSuccess(feedbackid);
             }
           });
         }
@@ -174,15 +169,17 @@
         var feedbackuser = $(".feedbackinfo-user[feedbackid='"+feedbackid+"']").html();
         $.getJSON("rateuser.jsp?username=" + username +"&feedbackuser="+feedbackuser+"&istrust="+"1", function(data) {
           if (data.result == false) {
-            $(".rateuserfailed[feedbackid='"+feedbackid+"']").slideDown(300);
-            $(".rateuserfailed[feedbackid='"+feedbackid+"']").css("display","inline-block");
+            var failed = $(".rateuserfailed[feedbackid='"+feedbackid+"']");
+            failed.slideDown(300);
+            failed.css("display","inline-block");
             setTimeout(function() {
-              $(".rateuserfailed[feedbackid='"+feedbackid+"']").slideUp(300);
+              failed.slideUp(300);
             },1000);
           }
           else {
-            $(".rateusersuccess[feedbackid='"+feedbackid+"']").slideDown(300);
-            $(".rateusersuccess[feedbackid='"+feedbackid+"']").css("display","inline-block");
+            var success = $(".rateusersuccess[feedbackid='"+feedbackid+"']");
+            success.slideDown(300);
+            success.css("display","inline-block");
             setTimeout(function() {
               $(".rateusersuccess[feedbackid='"+feedbackid+"']").slideUp(300);
               $(".userrating[feedbackid='"+feedbackid+"']").slideUp(300);
@@ -197,15 +194,17 @@
         var feedbackuser = $(".feedbackinfo-user[feedbackid='"+feedbackid+"']").html();
         $.getJSON("rateuser.jsp?username=" + username +"&feedbackuser="+feedbackuser+"&istrust="+"0", function(data) {
           if (data.result == false) {
-            $(".rateuserfailed[feedbackid='"+feedbackid+"']").slideDown(300);
-            $(".rateuserfailed[feedbackid='"+feedbackid+"']").css("display","inline-block");
+            var failed = $(".rateuserfailed[feedbackid='"+feedbackid+"']");
+            failed.slideDown(300);
+            failed.css("display","inline-block");
             setTimeout(function() {
               $(".rateuserfailed[feedbackid='"+feedbackid+"']").slideUp(300);
             },1000);
           }
           else {
-            $(".rateusersuccess[feedbackid='"+feedbackid+"']").slideDown(300);
-            $(".rateusersuccess[feedbackid='"+feedbackid+"']").css("display","inline-block");
+            var success = $(".rateusersuccess[feedbackid='"+feedbackid+"']");
+            success.slideDown(300);
+            success.css("display","inline-block");
             setTimeout(function() {
               $(".rateusersuccess[feedbackid='"+feedbackid+"']").slideUp(300);
               $(".userrating[feedbackid='"+feedbackid+"']").slideUp(300);
@@ -273,15 +272,15 @@
     <div class="feedback-title">Feedbacks</div>
     <label class="show-topfeedback-checkbox">
       <input class="topfeedback-checkbox" type="checkbox">
-      &nbsp;Show top
-      <input type="number" class="form-control topnumber" placeholder="n">
+      &nbsp;Only show top
+      <input type="number" class="form-control topnumber" placeholder="n" onclick="showfeedbacks()">
       most useful feedbacks
     </label>
     <hr class="bookinfo-divider">
     <div class="all-feedbackinfo-container">
     <%
       try{
-      while(result.next()){
+      while(result.next()) {
       %>
       <div class="feedbackinfo-container">
         <label class="feedbackinfo-user" feedbackid="<%=result.getString("feedbackid")%>"><%=result.getString("loginname")%></label>
@@ -316,8 +315,17 @@
       <div class="feedbackinfo-container">
         <label class="feedbackinfo-optionaltext"><%=result.getString("optional_text")%></label>
       </div>
-      <hr class="bookinfo-divider">
-      <%}
+      <%
+            if(result.isLast()) {
+            %>
+              <hr class="bookinfo-divider">
+            <%}
+            else {
+            %>
+              <hr class="thin-bookinfo-divider">
+            <%
+            }
+          }
       } catch (Exception e) {}
       %>
     </div>
@@ -370,7 +378,15 @@
       <div class="feedbackinfo-container">
         <label class="feedbackinfo-optionaltext"><%=result.getString("optional_text")%></label>
       </div>
+        <%
+          if(result.isLast()) {
+        %>
         <hr class="bookinfo-divider">
+        <%}
+        else {
+        %>
+        <hr class="thin-bookinfo-divider">
+        <%}%>
     </div>
     <%}
     } catch (Exception e) {}
@@ -378,36 +394,13 @@
   </div>
     <script>
       $(document).ready(function() {
-        var checker = false;
+
         var timeout;
         $(".topnumber").val(<%=feedbacknum%>);
         $(".topfeedback-checkbox").click(function() {
           if(!checker) {
             checker = true;
-            $(".all-feedbackinfo-container").slideUp(300);
-            var sn = $(".topnumber").val();
-            var n = 0;
-            if(sn!="")
-            {
-              n=parseInt(sn);
-            }
-            if(n<0) {
-              n=0;
-            }
-            for (var i = 1; i <=<%=feedbacknum%>; i++) {
-              if (i > n) {
-                $(".chooseablerow[feedbackid='" + i.toString() + "']").hide();
-              }
-              else {
-                $(".chooseablerow[feedbackid='" + i.toString() + "']").show();
-              }
-
-            }
-            clearTimeout(timeout);
-            timeout=setTimeout(function() {
-              $(".topfeedbackinfo-container").slideDown(300);
-            },300)
-
+            showfeedbacks();
           }
           else{
             checker = false;
@@ -420,6 +413,32 @@
           }
         });
       });
+      function showfeedbacks() {
+        if(checker) {
+          $(".all-feedbackinfo-container").slideUp(300);
+          var sn = $(".topnumber").val();
+          var n = 0;
+          if(sn!="")
+          {
+            n=parseInt(sn);
+          }
+          if(n<0) {
+            n=0;
+          }
+          for (var i = 1; i <=<%=feedbacknum%>; i++) {
+            if (i > n) {
+              $(".chooseablerow[feedbackid='" + i.toString() + "']").hide();
+            }
+            else {
+              $(".chooseablerow[feedbackid='" + i.toString() + "']").show();
+            }
+
+          }
+          setTimeout(function() {
+            $(".topfeedbackinfo-container").slideDown(300);
+          },300)
+        }
+      }
     </script>
   </div>
 <div class="givefeedback-container">

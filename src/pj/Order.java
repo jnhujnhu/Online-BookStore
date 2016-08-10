@@ -1,5 +1,7 @@
 package pj;
 
+import utils.Exceptions;
+
 import java.sql.*;
 import java.util.Date;
 
@@ -7,22 +9,20 @@ public class Order {
 	public Order(){
 	}
 	
-	public int arrangeorderid(Statement stmt) throws Exception
-	{
+	public int arrangeorderid(Statement stmt) {
 		int orderid = 1;
 		ResultSet result;
-		try{
-			result = stmt.executeQuery("select MAX(orderid) AS MO from orders_info");
-        } catch(Exception e) {
+		try {
+			result = stmt.executeQuery("SELECT MAX(orderid) AS MO FROM orders_info");
+
+			if (result.next()) {
+				String k = result.getString("MO");
+				if (k != null)
+					orderid = Integer.parseInt(k) + 1;
+			}
+		} catch(Exception e) {
 			System.err.println("Unable to execute.\n");
-	                System.err.println(e.getMessage());
-			throw(e);
-		}
-		if(result.next())
-		{
-			String k = result.getString("MO");
-			if(k!=null)
-				orderid = Integer.parseInt(k) + 1;
+			System.err.println(e.getMessage());
 		}
 		return orderid;
 	}
@@ -35,8 +35,8 @@ public class Order {
 			result = stmt.executeQuery(String.format("select * from orders natural join books where orderid = '%d' and loginname = '%s'", orderid, loginname));
         } catch(Exception e) {
 			System.err.println("Unable to execute.\n");
-	                System.err.println(e.getMessage());
-			throw(e);
+			System.err.println(e.getMessage());
+			throw (e);
 		}
 		return result;
 	}
@@ -71,15 +71,9 @@ public class Order {
 									"    books B\n" +
 									"where tmp.ISBN = B.ISBN " +
 									"order by tmp.sn desc;", orderid, orderid, orderid);
-		ResultSet ret;
-		try{
-			ret = stmt.executeQuery(query);
-		} catch(Exception e) {
-			System.err.println("Unable to execute.\n");
-			System.err.println(e.getMessage());
-			throw(e);
-		}
 
+		ResultSet ret;
+		ret = Exceptions.handleQueryExp(stmt, query, "Unable to execute.\n");
 		return ret;
 	}
 
@@ -103,65 +97,37 @@ public class Order {
 		return true;
 	}
 	
-	public void insertanorderinfo(int orderid, String ISBN, String loginname, int number, Statement stmt) throws Exception
-	{
+	public void insertanorderinfo(int orderid, String ISBN, String loginname, int number, Statement stmt) {
 		Timestamp ts = new Timestamp(new Date().getTime());
 
 		ResultSet result;
 		String check = String.format("select * from orders where orderid = '%s'", orderid);
 		String insertion;
-		try{
-			result = stmt.executeQuery(check);
-        } catch(Exception e) {
-			System.err.println("Unable to check.\n");
-	                System.err.println(e.getMessage());
-			throw(e);
-		}
-		
-		if(!result.next()){				
-			insertion = String.format("insert into orders_info values('%d')", orderid);
-			try{
-				stmt.executeUpdate(insertion);
-	        } catch(Exception e) {
-				System.err.println("Unable to insert.\n");
-		                System.err.println(e.getMessage());
-				throw(e);
+		result = Exceptions.handleQueryExp(stmt, check, "Unable to check.\n");
+		try {
+			if (!result.next()) {
+				insertion = String.format("insert into orders_info values('%d')", orderid);
+				Exceptions.handleUpdateExp(stmt, insertion, "Unable to insert.\n");
 			}
-		}	
-		
-		insertion = String.format("insert into orders values ('%d', '%s', '%d','%s','%s')", orderid, ts, number, loginname ,ISBN);
-		try{
-			stmt.executeUpdate(insertion);
-        } catch(Exception e) {
-			System.err.println("Unable to insert.\n");
-	                System.err.println(e.getMessage());
-			throw(e);
-		}
-		
-////////////////////////////////////////////////////////////////////////////////////////////////////update number_of_copies
-		check = String.format("select number_of_copies from books where ISBN = '%s'", ISBN);
-		try{
-			result = stmt.executeQuery(check);
-        } catch(Exception e) {
-			System.err.println("Unable to check.\n");
-	                System.err.println(e.getMessage());
-			throw(e);
-		}
-		int ncopies = 0;
-		if(result.next())
-		{
-			ncopies = result.getInt("number_of_copies");
-		}
-		
-		ncopies -= number;
-		
-		insertion = String.format("update books set number_of_copies = '%d' where ISBN = '%s' ", ncopies, ISBN);
-		try{
-			stmt.executeUpdate(insertion);
-        } catch(Exception e) {
-			System.err.println("Unable to insert.\n");
-	                System.err.println(e.getMessage());
-			throw(e);
+
+			insertion = String.format("insert into orders values ('%d', '%s', '%d','%s','%s')", orderid, ts, number, loginname, ISBN);
+			Exceptions.handleUpdateExp(stmt, insertion, "Unable to insert.\n");
+
+			check = String.format("select number_of_copies from books where ISBN = '%s'", ISBN);
+			result = Exceptions.handleQueryExp(stmt, check, "Unable to execute.\n");
+
+			int ncopies = 0;
+			if (result.next()) {
+				ncopies = result.getInt("number_of_copies");
+			}
+
+
+			ncopies -= number;
+
+			insertion = String.format("update books set number_of_copies = '%d' where ISBN = '%s' ", ncopies, ISBN);
+			Exceptions.handleUpdateExp(stmt, insertion, "Unable to insert.\n");
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 }

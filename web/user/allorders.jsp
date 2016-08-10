@@ -74,6 +74,7 @@
       boolean isempty = true;
       String now_orderid = "";
       float totalprice = 0;
+      int totalbooks = 0;
       try {
         while(result.next()) {
           isempty = false;
@@ -83,16 +84,19 @@
                     </tbody>
                   </table>
                   <div class="order-total-price">Total Price :  <%="¥"+totalprice%></div>
+                  <script>
+                    $("#totalnumber[order-id='" + <%=now_orderid%> + "']").text(<%=totalbooks%>);
+                  </script>
                 </div>
                 </td>
 
               </tr>
-              <%totalprice=0;}%>
+              <%totalprice=0;totalbooks=0;}%>
               <tr>
                 <td class="orow" order-id="<%=result.getString("orderid")%>"><%=result.getString("orderid")%></td>
                 <td class="orow" order-id="<%=result.getString("orderid")%>"><%=result.getString("date")%>
                 </td>
-                <td class="orow" order-id="<%=result.getString("orderid")%>"><%=result.getString("number")%></td>
+                <td class="orow" order-id="<%=result.getString("orderid")%>" id="totalnumber"><%=result.getString("number")%></td>
                 <td>
                   <input type="button" class="btn btn-default order-detail-btn" order-id="<%=result.getString("orderid")%>" value="Show detail">
                 </td>
@@ -112,9 +116,11 @@
                         <td class="brow" bookid="<%=result.getString("ISBN")%>"><%="¥"+Float.toString(result.getFloat("price") * result.getFloat("number"))%></td>
                       </tr>
           <%totalprice += result.getFloat("price") * result.getFloat("number");
+            totalbooks += result.getInt("number");
           }
           else{
             totalprice += result.getFloat("price") * result.getFloat("number");
+            totalbooks += result.getInt("number");
               %>
                       <tr>
                         <td class="brow" bookid="<%=result.getString("ISBN")%>"><%=result.getString("ISBN")%></td>
@@ -128,21 +134,25 @@
           }
         }
         catch (Exception e){e.printStackTrace();}
-                if(!isempty)
-                {
+        if(!isempty)
+        {
                   %>
                       </tbody>
                     </table>
                     <div class="order-total-price">Total Price :  <%="¥"+totalprice%></div>
+                    <script>
+                        $("#totalnumber[order-id='" + <%=now_orderid%> + "']").text(<%=totalbooks%>);
+                    </script>
                   </div>
                   </td>
                   </tr>
                   <%
-                }
+        }
     %>
 
     </tbody>
   </table>
 </div>
+<div style="height: 100px"></div>
 </body>
 </html>

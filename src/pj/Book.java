@@ -427,7 +427,7 @@ public class Book{
 			stmt.executeUpdate(insert);
         } catch(Exception e) {
 			System.err.println("Unable to insert.\n");
-	                System.err.println(e.getMessage());
+			System.err.println(e.getMessage());
 			throw(e);
 		}
 		
@@ -439,7 +439,7 @@ public class Book{
 				result = stmt.executeQuery(check);
 	        } catch(Exception e) {
 				System.err.println("Unable to check.\n");
-		                System.err.println(e.getMessage());
+				System.err.println(e.getMessage());
 				throw(e);
 			}
 			
@@ -460,7 +460,7 @@ public class Book{
 				stmt.executeUpdate(insert);
 	        } catch(Exception e) {
 				System.err.println("Unable to insert.\n");
-		                System.err.println(e.getMessage());
+				System.err.println(e.getMessage());
 				throw(e);
 			}
 		}
@@ -473,7 +473,7 @@ public class Book{
 				result = stmt.executeQuery(check);
 	        } catch(Exception e) {
 				System.err.println("Unable to check.\n");
-		                System.err.println(e.getMessage());
+				System.err.println(e.getMessage());
 				throw(e);
 			}
 			if(!result.next()){
@@ -483,7 +483,7 @@ public class Book{
 						stmt.executeUpdate(insert);
 			        } catch(Exception e) {
 						System.err.println("Unable to insert.\n");
-				                System.err.println(e.getMessage());
+						System.err.println(e.getMessage());
 						throw(e);
 					}
 				
@@ -494,7 +494,7 @@ public class Book{
 				stmt.executeUpdate(insert);
 	        } catch(Exception e) {
 				System.err.println("Unable to insert.\n");
-		                System.err.println(e.getMessage());
+				System.err.println(e.getMessage());
 				throw(e);
 			}
 		}
@@ -509,8 +509,8 @@ public class Book{
 			result = stmt.executeQuery(query);
         } catch(Exception e) {
 			System.err.println("Unable to execute!");
-	                System.err.println(e.getMessage());
-			throw(e);
+			System.err.println(e.getMessage());
+			throw (e);
 		}
 		while(result.next())
 		{
@@ -522,8 +522,8 @@ public class Book{
 			stmt.executeUpdate(update);
         } catch(Exception e) {
 			System.err.println("Unable to update.\n");
-	                System.err.println(e.getMessage());
-			throw(e);
+			System.err.println(e.getMessage());
+			throw (e);
 		}
 	}
 }

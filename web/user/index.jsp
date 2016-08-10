@@ -242,6 +242,9 @@
         %>
       </tbody>
     </table>
+    <div class="body-bottom" style="margin-top: 40px; position: absolute; margin-left: -100px; width: 100%;">
+      <label class="bottom-instruction">Copyright@2008-2015  Kevin  沪ICP备2333333号</label>
+    </div>
   </div>
   <form method="post" action="order.jsp">
     <div class="orderid-submit" name="orderid"></div>
@@ -264,5 +267,6 @@
       </a>
     </div>
   </form>
+
 </body>
 </html>

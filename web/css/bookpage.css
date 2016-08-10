@@ -2,6 +2,10 @@
     width: 1000px;
     border-top: 2px solid #999;
 }
+.thin-bookinfo-divider{
+    width: 980px;
+    border-top: 1px solid #999;
+}
 .bookinfo-row{
     margin-left: 50px;
 }
